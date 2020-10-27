@@ -1,0 +1,25 @@
+.hero {
+  align-items: flex-end;
+  align-content: flex-end;
+  justify-content: flex-end;
+  min-height: 50vh;
+  z-index: 30;
+
+  @media only screen and (min-width: 1024px) {
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    min-height: 75vh;
+  }
+}
+
+.bgImage {
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.caption {
+  margin: 1rem auto;
+  text-shadow: -1px -1px -1px #000;
+}
