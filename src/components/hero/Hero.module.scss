@@ -2,14 +2,13 @@
   align-items: flex-end;
   align-content: flex-end;
   justify-content: flex-end;
-  min-height: 50vh;
+  min-height: 75vh;
   z-index: 30;
 
   @media only screen and (min-width: 1024px) {
     align-items: center;
     align-content: center;
     justify-content: center;
-    min-height: 75vh;
   }
 }
 
@@ -20,6 +19,19 @@
 }
 
 .caption {
-  margin: 1rem auto;
-  text-shadow: -1px -1px -1px #000;
+  margin: 1.5rem auto;
+  text-shadow: 0 0 0 #000;
+}
+
+.heading {
+  color: var(--color-primary);
+  line-height: 1.25;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.subheading {
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
 }

@@ -1,5 +1,9 @@
 @import "tailwindcss/base";
 
+@import "./palette.scss";
+
 @import "tailwindcss/components";
+
+@import "./typography.scss";
 
 @import "tailwindcss/utilities";

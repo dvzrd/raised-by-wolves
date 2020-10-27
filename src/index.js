@@ -1,11 +1,11 @@
-import React, { StrictMode } from 'react';
-import { render } from 'react-dom';
+import React, { StrictMode } from "react";
+import { render } from "react-dom";
 
-import { App } from './App';
+import { App } from "./App";
 import { TVMazeProvider } from "./contexts";
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from "./reportWebVitals";
 
-import './styles/index.scss';
+import "./styles/index.scss";
 
 render(
   <StrictMode>
@@ -13,7 +13,7 @@ render(
       <App />
     </TVMazeProvider>
   </StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

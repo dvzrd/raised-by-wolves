@@ -1,3 +1,3 @@
-export * from './section';
-export * from './loader';
-export * from './hero';
+export * from "./section";
+export * from "./loader";
+export * from "./hero";

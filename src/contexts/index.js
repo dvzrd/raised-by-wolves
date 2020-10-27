@@ -1,1 +1,1 @@
-export * from './tvmaze';
+export * from "./tvmaze";
