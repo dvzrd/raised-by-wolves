@@ -1,4 +1,11 @@
 :root {
+  // gray colors
+  --color-gray-500: #7d7d78;
+  --color-gray-900: #050a08;
+  // orange colors
   --color-orange-500: #f99b42;
+  // primary colors
   --color-primary: var(--color-orange-500);
+  // secondary colors
+  --color-secondary: var(--color-gray-900);
 }

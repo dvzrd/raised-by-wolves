@@ -39,7 +39,7 @@ export const Hero = ({
         <h1
           className={classNames(
             styles.heading,
-            "text-4xl sm:text-5xl md:text-6xl",
+            "text-4xl sm:text-5xl lg:text-6xl xl:text-7xl",
             captionProps?.headingClassName
           )}
         >

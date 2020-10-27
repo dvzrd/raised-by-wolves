@@ -9,6 +9,7 @@ const TVMazeContext = createContext({
 // TODO:
 // - refactor to flux pattern with `createReducer and useReducer`
 // - add fetch for crew, get creator and executive producer types to list on landing page.
+// - add hero image from background images to provider state using an internal method.
 
 export const fetchShow = (id) =>
   fetch(`https://api.tvmaze.com/shows/${id}`)

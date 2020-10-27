@@ -2,16 +2,11 @@ import React, { StrictMode } from "react";
 import { render } from "react-dom";
 
 import { App } from "./App";
-import { TVMazeProvider } from "./contexts";
 import reportWebVitals from "./reportWebVitals";
-
-import "./styles/index.scss";
 
 render(
   <StrictMode>
-    <TVMazeProvider>
-      <App />
-    </TVMazeProvider>
+    <App />
   </StrictMode>,
   document.getElementById("root")
 );

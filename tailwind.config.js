@@ -4,8 +4,8 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        default: "1rem",
-        sm: "1.5rem",
+        default: "1.5rem",
+        sm: "2rem",
         md: "3rem",
         lg: "6rem",
         xl: "12rem",
@@ -20,10 +20,15 @@ module.exports = {
     },
     extend: {
       colors: {
+        gray: {
+          500: "var(--color-gray-500)",
+          900: "var(--color-gray-900)",
+        },
         orange: {
           500: "var(--color-orange-500)",
         },
         primary: "var(--color-primary)",
+        secondary: "var(--color-secondary)",
       },
       fontFamily: {
         sans: [
@@ -42,6 +47,13 @@ module.exports = {
           "'Segoe UI Symbol'",
           "'Noto Color Emoji'",
         ],
+      },
+      fontSize: {
+        "7xl": "4.5rem",
+      },
+      leading: {
+        11: "2.75rem",
+        12: "3rem",
       },
     },
   },
