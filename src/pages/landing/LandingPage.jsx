@@ -13,24 +13,13 @@ export const LandingPage = () => {
 
   return (
     <DefaultLayout>
-      <Section>
-        <figcaption className="mt-8 mb-4">
-          <h3 className="text-2xl md:text-3xl xl:text-4xl">
-            From the minds of
-          </h3>
-        </figcaption>
-        <ul className="grid sm:grid-cols-2">
-          <li className="my-4">
-            <h3 className="text-xl md:text-2xl xl:text-3xl">Ridley Scott</h3>
-          </li>
-          <li className="my-4">
-            <h3 className="text-xl md:text-2xl xl:text-3xl">
-              Aaron Guzikowski
-            </h3>
-          </li>
-        </ul>
+      <Section className="bg-secondary">
+        <h3 className="mt-4 md:mt-6 xl:md-8 text-gray-300 text-xl md:text-2xl xl:text-3xl">
+          From Executive Producer Ridley Scott and Creator Aaron Guzikowski
+          comes a brand new Science Fiction Drama.
+        </h3>
         <article
-          className="py-8 md:py-10 xl:py-12 leading-12 text-lg md:text-xl xl:text-2xl"
+          className="py-8 md:py-10 xl:py-12 leading-12 text-gray-300 text-lg md:text-xl xl:text-2xl"
           dangerouslySetInnerHTML={{ __html: show?.summary }}
         />
       </Section>

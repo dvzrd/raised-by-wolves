@@ -3,18 +3,11 @@ import React from "react";
 import { Hero, Loader, Section } from "../../components";
 import { useTVMazeContext } from "../../contexts";
 
+import styles from "./DefaultLayout.module.scss";
 import { hero } from "../constants";
 
-// TODO:`
-// - create page to list episodes:
-// {episodes.length && episodes.map((episode) => (
-//   <div className="py-4" key={episode.id}>
-//     <img alt={episode.name} src={episode.image.medium} />
-//     <h2 className="text-xl">
-//       {episode.number}. {episode.name}
-//     </h2>
-//   </div>
-// ))}
+// TODO:
+// - create a container to reuse loading pattern for layouts and pages (or other components that use data)
 
 export const DefaultLayout = ({ children }) => {
   const { show, images } = useTVMazeContext();
@@ -25,16 +18,20 @@ export const DefaultLayout = ({ children }) => {
   console.log(images);
 
   return (
-    <div className="flex flex-col flex-no-wrap min-h-screen">
+    <div className={styles.layout}>
       <Hero
         actions={hero?.actions}
         heading={show.name}
         subheading={hero?.subheading}
         bgImage={backgroundImages[0]}
       />
-      <main className="flex-1 z-20">{children}</main>
-      <Section component="footer" className="z-10">
-        <p className="text-sm">
+      <main className={styles.main}>{children}</main>
+      <Section
+        component="footer"
+        className={styles.footer}
+        pattern="space-apart-sm"
+      >
+        <p className="text-secondary text-sm">
           <a href={show.url}>{show.name}</a> is available for streaming
           exclusively on <a href={show.officialSite}>{show.webChannel.name}</a>.
         </p>

@@ -19,15 +19,15 @@ export const Hero = ({
 }) => (
   <Section
     component="header"
-    className={classNames(
-      styles.hero,
-      "py-10 md:py-12 xl:py-14",
-      bgImage && styles.bgImage,
-      className
-    )}
+    className={classNames(styles.hero, bgImage && styles.bgImage, className)}
+    pattern="space-apart-xl"
     style={
       bgImage?.resolutions?.original?.url && {
-        backgroundImage: `url(${bgImage?.resolutions?.original?.url})`,
+        backgroundImage: `
+          linear-gradient(0deg, rgba(5, 10, 8, 1) 0%,
+          rgba(5, 10, 8, 0) 100%),
+          url(${bgImage?.resolutions?.original?.url})
+        `,
       }
     }
     {...rest}
@@ -50,7 +50,7 @@ export const Hero = ({
             className={classNames(
               styles.subheading,
               "text-lg sm:text-xl md:text-2xl",
-              bgImage && "text-gray-200",
+              bgImage && "text-white",
               captionProps?.subheadingClassName
             )}
           >

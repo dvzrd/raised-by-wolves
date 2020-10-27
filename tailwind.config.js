@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   theme: {
     purge: ["src/**/*.js", "src/**/*.jsx", "public/**/*.html"],
@@ -21,32 +23,19 @@ module.exports = {
     extend: {
       colors: {
         gray: {
+          ...defaultTheme.colors.gray,
           500: "var(--color-gray-500)",
           900: "var(--color-gray-900)",
         },
         orange: {
+          ...defaultTheme.colors.orange,
           500: "var(--color-orange-500)",
         },
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
       },
       fontFamily: {
-        sans: [
-          "Overpass",
-          "Nunito Sans",
-          "Roboto",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "'Segoe UI'",
-          "'Helvetica Neue'",
-          "Arial",
-          "'Noto Sans'",
-          "sans-serif",
-          "'Apple Color Emoji'",
-          "'Segoe UI Emoji'",
-          "'Segoe UI Symbol'",
-          "'Noto Color Emoji'",
-        ],
+        sans: ["Overpass", ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
         "7xl": "4.5rem",
