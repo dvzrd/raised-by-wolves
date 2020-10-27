@@ -2,13 +2,16 @@ import React, { StrictMode } from 'react';
 import { render } from 'react-dom';
 
 import { App } from './App';
+import { TVShowProvider } from "./contexts";
 import reportWebVitals from './reportWebVitals';
 
 import './styles/index.scss';
 
 render(
   <StrictMode>
-    <App />
+    <TVShowProvider>
+      <App />
+    </TVShowProvider>
   </StrictMode>,
   document.getElementById('root')
 );
