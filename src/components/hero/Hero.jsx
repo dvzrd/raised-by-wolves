@@ -23,11 +23,11 @@ export const Hero = ({
     className={classNames(styles.hero, bgImage && styles.bgImage, className)}
     pattern="space-apart-xl"
     style={
-      bgImage?.resolutions?.original?.url && {
+      bgImage && {
         backgroundImage: `
           linear-gradient(0deg, rgba(5, 10, 8, 1) 0%,
           rgba(5, 10, 8, 0) 100%),
-          url(${bgImage?.resolutions?.original?.url})
+          url(${bgImage})
         `,
       }
     }
@@ -40,7 +40,7 @@ export const Hero = ({
         <h1
           className={classNames(
             styles.heading,
-            "text-4xl sm:text-5xl lg:text-6xl xl:text-7xl",
+            "tracking-widest text-4xl sm:text-5xl lg:text-6xl xl:text-7xl",
             captionProps?.headingClassName
           )}
         >
@@ -50,7 +50,7 @@ export const Hero = ({
           <h2
             className={classNames(
               styles.subheading,
-              "font-light tracking-wide text-lg sm:text-xl md:text-2xl",
+              "font-light tracking-wider text-lg sm:text-xl md:text-2xl",
               bgImage && "text-white",
               captionProps?.subheadingClassName
             )}
@@ -96,16 +96,7 @@ export const heroPropTypes = {
   bgImage: PropTypes.oneOfType([
     PropTypes.any,
     PropTypes.bool,
-    PropTypes.shape({
-      id: PropTypes.number,
-      main: PropTypes.string,
-      resolutions: PropTypes.shape({
-        original: PropTypes.shape({
-          url: PropTypes.string,
-        }),
-      }),
-      type: PropTypes.string,
-    }),
+    PropTypes.string,
   ]),
   className: PropTypes.string,
   component: PropTypes.elementType,

@@ -4,12 +4,16 @@
   min-height: 100vh;
 }
 
+.header {
+  z-index: 30;
+}
+
 .main {
   flex: 1 1;
   z-index: 20;
 }
 
 .footer {
-  background-color: var(--color-primary);
+  background-color: var(--color-gray-100);
   z-index: 10;
 }

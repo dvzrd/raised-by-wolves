@@ -1,41 +1,67 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import { Hero, Loader, Section } from "../../components";
+import { Loader, Section } from "../../components";
 import { useTVMazeContext } from "../../contexts";
 
 import styles from "./DefaultLayout.module.scss";
-import { hero } from "../constants";
 
 // TODO:
 // - create a container to reuse loading pattern for layouts and pages (or other components that use data)
 
-export const DefaultLayout = ({ children }) => {
-  const { show, images } = useTVMazeContext();
-  const backgroundImages = images.filter(({ type }) => type === "background");
+export const DefaultLayout = ({
+  children,
+  showHeader = true,
+  showFooter = true,
+}) => {
+  const { show } = useTVMazeContext();
 
   if (!show) return <Loader />;
 
-  console.log("images", images);
-
   return (
     <div className={styles.layout}>
-      <Hero
-        actions={hero?.actions}
-        heading={show.name}
-        subheading={hero?.subheading}
-        bgImage={backgroundImages[0]}
-      />
+      {showHeader && (
+        <Section
+          component="header"
+          className={styles.header}
+          pattern="space-apart-sm"
+        >
+          <Link to="/">
+            <h1 className="inline-flex font-bold uppercase tracking-widest text-lg text-secondary hover:text-primary transition-colors duration-150 ease-in-out">
+              {show.name}
+            </h1>
+          </Link>
+        </Section>
+      )}
       <main className={styles.main}>{children}</main>
-      <Section
-        component="footer"
-        className={styles.footer}
-        pattern="space-apart-sm"
-      >
-        <p className="text-secondary text-sm">
-          <a href={show.url}>{show.name}</a> is available for streaming
-          exclusively on <a href={show.officialSite}>{show.webChannel.name}</a>.
-        </p>
-      </Section>
+      {showFooter && (
+        <Section
+          component="footer"
+          className={styles.footer}
+          pattern="space-apart-sm"
+        >
+          <p className="text-gray-800 text-sm">
+            <a
+              className="underline hover:text-secondary transition-colors duration-150 ease-in-out"
+              href={show.url}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {show.name}
+            </a>{" "}
+            is streaming exclusively on{" "}
+            <a
+              className="underline hover:text-secondary transition-colors duration-150 ease-in-out"
+              href={show.officialSite}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {show.webChannel.name}
+            </a>
+            .
+          </p>
+        </Section>
+      )}
     </div>
   );
 };

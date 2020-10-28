@@ -15,8 +15,6 @@ export const Section = ({
   const SectionComponent = component;
   const ContainerComponent = containerComponent;
 
-  if (!children) return null;
-
   return (
     <SectionComponent
       className={classNames(

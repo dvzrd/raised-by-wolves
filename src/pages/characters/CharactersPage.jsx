@@ -13,7 +13,7 @@ export const CharactersPage = () => {
 
   return (
     <DefaultLayout>
-      <Section className="bg-gray-200">
+      <Section className="bg-gray-100">
         {cast.length &&
           cast.map(({ character }) => (
             <div className="py-4" key={character.id}>
