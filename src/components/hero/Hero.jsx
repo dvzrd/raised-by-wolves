@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
+import { Button } from "../button";
 import { Section } from "../section";
 
 import styles from "./Hero.module.scss";
@@ -63,16 +64,15 @@ export const Hero = ({
     {actions?.length ? (
       <div className={classNames(styles.actions, actionsClassName)}>
         {actions.map((action) => (
-          <a
+          <Button
             key={action.label}
-            className={classNames(
-              "inline-flex bg-transparent text-primary hover:bg-primary hover:text-secondary sm:text-lg uppercase font-medium tracking-wide py-4 px-6 border border-primary rounded shadow transition duration-150 ease-in-out",
-              action.className
-            )}
+            className={action.className}
+            component="a"
             href={action.href}
+            pattern="outline"
           >
             {action.label}
-          </a>
+          </Button>
         ))}
       </div>
     ) : (

@@ -20,21 +20,21 @@ export const LandingPage = () => {
     <DefaultLayout>
       <Section className="bg-secondary">
         {producer && creator && (
-          <h2 className="font-light tracking-wide mt-4 md:mt-6 xl:mt-8 text-gray-100 text-lg md:text-xl xl:text-2xl">
+          <h2 className="font-light tracking-wider mt-4 md:mt-6 xl:mt-8 text-gray-100 text-lg md:text-xl xl:text-2xl">
             From {producer.type} {producer.person.name}, comes an exciting new
             series straight from the mind of {creator.person.name}.
           </h2>
         )}
         <article
-          className="font-light tracking-wide py-8 md:py-10 xl:py-12 leading-12 text-gray-100 text-lg md:text-xl xl:text-2xl"
+          className="font-hairline tracking-wider py-8 md:py-10 xl:py-12 leading-12 text-gray-100 text-lg md:text-xl xl:text-2xl"
           dangerouslySetInnerHTML={{ __html: show?.summary }}
         />
-        <h2 className="font-light tracking-wide mb-4 md:mb-6 xl:mb-8  text-gray-100 text-lg md:text-xl xl:text-2xl">
+      </Section>
+      <Section className="bg-primary">
+        <h2 className="font-light tracking-wide mb-4 md:mb-6 xl:mb-8 text-secondary text-lg md:text-xl xl:text-2xl">
           {show.name} is streaming exclusively on{" "}
           <a href={show.officialSite}>{show.webChannel.name}</a>
         </h2>
-      </Section>
-      <Section className="bg-primary">
         <h4 className="font-light tracking-wide">Watch the trailer</h4>
       </Section>
       <Section className="bg-gray-100">
