@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 import { Link } from "react-router-dom";
 
 import { Button, Loader, Section } from "../../components";
@@ -11,21 +12,27 @@ import styles from "./DefaultLayout.module.scss";
 
 export const DefaultLayout = ({
   children,
+  className,
+  headerProps,
   showHeader = true,
+  mainClassName,
+  footerProps,
   showFooter = true,
+  ...rest
 }) => {
   const { show } = useTVMazeContext();
 
   if (!show) return <Loader />;
 
   return (
-    <div className={styles.layout}>
+    <div {...rest} className={classNames(styles.layout, className)}>
       {showHeader && (
         <Section
-          className={styles.header}
           component="header"
           containerClassName="flex content-center items-center justify-between"
           pattern="space-apart-sm"
+          {...headerProps}
+          className={classNames(styles.header, headerProps?.className)}
         >
           <Link to="/">
             <h1 className="inline-flex font-bold uppercase tracking-widest text-lg text-secondary hover:text-primary transition-colors duration-150 ease-in-out">
@@ -45,14 +52,15 @@ export const DefaultLayout = ({
           </Button>
         </Section>
       )}
-      <main className={styles.main}>{children}</main>
+      <main className={classNames(styles.main, mainClassName)}>{children}</main>
       {showFooter && (
         <Section
           component="footer"
-          className={styles.footer}
           pattern="space-apart-sm"
+          {...footerProps}
+          className={classNames(styles.footer, footerProps?.className)}
         >
-          <p className="text-gray-800 text-sm">
+          <p className="text-sm">
             <a
               className="underline hover:text-secondary transition-colors duration-150 ease-in-out"
               href={show.url}

@@ -1,3 +1,3 @@
-export * from "./landing";
-export * from "./characters";
+export * from "./cast";
 export * from "./episodes";
+export * from "./landing";

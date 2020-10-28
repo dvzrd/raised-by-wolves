@@ -4,7 +4,7 @@ import { DefaultLayout } from "../../layouts";
 import { Loader, Section } from "../../components";
 import { useTVMazeContext } from "../../contexts";
 
-export const CharactersPage = () => {
+export const CastPage = () => {
   const { cast } = useTVMazeContext();
 
   if (!cast) return <Loader />;
