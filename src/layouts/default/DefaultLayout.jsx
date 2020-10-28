@@ -15,7 +15,7 @@ export const DefaultLayout = ({ children }) => {
 
   if (!show) return <Loader />;
 
-  console.log(images);
+  console.log("images", images);
 
   return (
     <div className={styles.layout}>

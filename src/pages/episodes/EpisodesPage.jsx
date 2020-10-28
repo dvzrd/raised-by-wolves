@@ -9,6 +9,8 @@ export const EpisodesPage = () => {
 
   if (!episodes) return <Loader />;
 
+  console.log("episodes", episodes);
+
   return (
     <DefaultLayout>
       <Section className="bg-gray-200">

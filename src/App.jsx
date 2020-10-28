@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import { TVMazeProvider } from "./contexts";
-import { EpisodesPage, LandingPage } from "./pages";
+import { CharactersPage, EpisodesPage, LandingPage } from "./pages";
 
 import "./styles/index.scss";
 
@@ -16,6 +16,7 @@ export const App = () => (
     <TVMazeProvider>
       <Switch>
         <Route component={LandingPage} exact path="/" />
+        <Route component={CharactersPage} path="/characters" />
         <Route component={EpisodesPage} path="/episodes" />
         <Route render={() => <Redirect to="/" />} />
       </Switch>

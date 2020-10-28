@@ -1,5 +1,8 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
+// TODO:
+// - look into issue where theme extends overrides default config.
+
 module.exports = {
   theme: {
     purge: ["src/**/*.js", "src/**/*.jsx", "public/**/*.html"],
@@ -22,9 +25,16 @@ module.exports = {
     },
     extend: {
       colors: {
+        ...defaultTheme.colors,
         gray: {
-          ...defaultTheme.colors.gray,
+          100: "var(--color-gray-100)",
+          200: "var(--color-gray-200)",
+          300: "var(--color-gray-300)",
+          400: "var(--color-gray-400)",
           500: "var(--color-gray-500)",
+          600: "var(--color-gray-600)",
+          700: "var(--color-gray-700)",
+          800: "var(--color-gray-800)",
           900: "var(--color-gray-900)",
         },
         orange: {
@@ -38,9 +48,11 @@ module.exports = {
         sans: ["Overpass", ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
+        ...defaultTheme.fontSize,
         "7xl": "4.5rem",
       },
       leading: {
+        ...defaultTheme.leading,
         11: "2.75rem",
         12: "3rem",
       },

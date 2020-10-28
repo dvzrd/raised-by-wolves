@@ -5,23 +5,45 @@ import { Loader, Section } from "../../components";
 import { useTVMazeContext } from "../../contexts";
 
 export const LandingPage = () => {
-  const { show } = useTVMazeContext();
+  const { show, crew } = useTVMazeContext();
 
   if (!show) return <Loader />;
 
-  console.log(show);
+  const producer = crew?.filter(
+    ({ person }) => person.name === "Ridley Scott"
+  )[0];
+  const creator = crew?.filter(({ type }) => type === "Creator")[0];
+
+  console.log("show", show, "crew", crew);
 
   return (
     <DefaultLayout>
       <Section className="bg-secondary">
-        <h3 className="mt-4 md:mt-6 xl:md-8 text-gray-300 text-xl md:text-2xl xl:text-3xl">
-          From Executive Producer Ridley Scott and Creator Aaron Guzikowski
-          comes a brand new Science Fiction Drama.
-        </h3>
+        {producer && creator && (
+          <h2 className="font-light tracking-wide mt-4 md:mt-6 xl:mt-8 text-gray-100 text-lg md:text-xl xl:text-2xl">
+            From {producer.type} {producer.person.name}, comes an exciting new
+            series straight from the mind of {creator.person.name}.
+          </h2>
+        )}
         <article
-          className="py-8 md:py-10 xl:py-12 leading-12 text-gray-300 text-lg md:text-xl xl:text-2xl"
+          className="font-light tracking-wide py-8 md:py-10 xl:py-12 leading-12 text-gray-100 text-lg md:text-xl xl:text-2xl"
           dangerouslySetInnerHTML={{ __html: show?.summary }}
         />
+        <h2 className="font-light tracking-wide mb-4 md:mb-6 xl:mb-8  text-gray-100 text-lg md:text-xl xl:text-2xl">
+          {show.name} is streaming exclusively on{" "}
+          <a href={show.officialSite}>{show.webChannel.name}</a>
+        </h2>
+      </Section>
+      <Section className="bg-primary">
+        <h4 className="font-light tracking-wide">Watch the trailer</h4>
+      </Section>
+      <Section className="bg-gray-100">
+        <h4 className="font-light tracking-wide">Meet the characters</h4>
+      </Section>
+      <Section>
+        <h4 className="font-light tracking-wide">
+          See list of available episodes
+        </h4>
       </Section>
     </DefaultLayout>
   );

@@ -49,7 +49,7 @@ export const Hero = ({
           <h2
             className={classNames(
               styles.subheading,
-              "text-lg sm:text-xl md:text-2xl",
+              "font-light tracking-wide text-lg sm:text-xl md:text-2xl",
               bgImage && "text-white",
               captionProps?.subheadingClassName
             )}
@@ -66,7 +66,7 @@ export const Hero = ({
           <a
             key={action.label}
             className={classNames(
-              "inline-flex bg-orange-500 hover:bg-orange-600 text-white sm:text-lg font-medium py-4 px-6 rounded shadow",
+              "inline-flex bg-transparent text-primary hover:bg-primary hover:text-secondary sm:text-lg uppercase font-medium tracking-wide py-4 px-6 border border-primary rounded shadow transition duration-150 ease-in-out",
               action.className
             )}
             href={action.href}
