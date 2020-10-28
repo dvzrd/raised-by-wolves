@@ -26,14 +26,12 @@ export const LandingPage = () => {
 
   const layoutProps = {
     showHeader: false,
-    footerProps: {
-      className: "bg-primary",
-    },
+    showFooter: false,
   };
 
   if (!images.length) return <Loader />;
 
-  console.log(featuredEpisode);
+  console.log(show, featuredEpisode);
 
   return (
     <DefaultLayout {...layoutProps}>
@@ -207,36 +205,32 @@ export const LandingPage = () => {
         </Section>
       )}
 
-      {featuredEpisode && (
-        <Section
-          className="bg-primary"
-          component="footer"
-          pattern="space-apart-md"
-        >
-          <figcaption className="mt-8 mb-4 md:md-16 xl:mt-24">
-            <h2 className="font-semibold uppercase tracking-widest text-center md:text-left text-2xl md:text-3xl xl:text-4xl">
-              {show?.name}
-            </h2>
-          </figcaption>
-          <div className="grid md:grid-cols-6 items-center content-center justify-center">
-            <img
-              className="md:col-span-2 w-full"
-              alt={featuredEpisode.name}
-              src={featuredEpisode.image.medium}
-            />
-            <div className="md:col-span-4 md:px-8 xl:px-10 text-center md:text-left">
-              <h4 className="text-lg md:text-xl xl:text-2xl mt-2 md:mt-0">
-                {featuredEpisode.name}{" "}
-              </h4>
-              <p className="text-sm md:text-base xl:text-lg">
-                Season {featuredEpisode.season}, Episode{" "}
-                {featuredEpisode.number}
-              </p>
-              <p className="text-sm md:text-base xl:text-lg">
-                Aired on {featuredEpisode.airdate}
-              </p>
+      <Section
+        className="bg-primary"
+        component="footer"
+        pattern="space-apart-sm"
+      >
+        <figcaption className="mb-4 xl:mb-6 mt-16 md:mt-24 xl:mt-32 font-semibold uppercase tracking-widest text-center sm:text-left">
+          <h4 className="md:text-lg xl:text-xl text-gray-800">{show?.name}</h4>
+          {featuredEpisode && (
+            <h4 className="leading-tight text-3xl md:text-4xl xl:text-5xl">
+              {featuredEpisode.name}
+              <small className="block xs:flex xs:justify-between border-t-2 border-gray-800 pt-2 mt-1 text-gray-600 text-xs md:text-sm">
+                Season {featuredEpisode.season}, Episode {featuredEpisode.number} <span className="block sm:inline sm:text-right">{featuredEpisode.airdate}</span>
+              </small>
+            </h4>
+          )}
+        </figcaption>
+        {featuredEpisode && (
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 xl:gap-10 items-center content-center">
+            <div className="w-full h-64 sm:h-full bg-no-repeat bg-center bg-cover" style={{ backgroundImage: `url(${featuredEpisode.image.original})` }} />
+            <div className="text-center sm:text-left sm:my-1 lg:my-2">
+              <article
+                className="md:text-lg xl:text-xl text-left text-gray-800"
+                dangerouslySetInnerHTML={{ __html: featuredEpisode.summary }}
+              />
               <Button
-                className="mt-4"
+                className="mt-4 md:mt-6"
                 color="secondary"
                 component={Link}
                 pattern="outline"
@@ -247,8 +241,19 @@ export const LandingPage = () => {
               </Button>
             </div>
           </div>
-        </Section>
-      )}
+        )}
+        <p className="text-sm md:text-base xl:text-lg text-center sm:text-left mt-8 md:mt-10 xl:mt-12">
+          Streaming exclusively on{" "}
+          <a
+            className="underline text-gray-800 hover:text-secondary"
+            href={show?.officialSite}
+            rel="noreferrer"
+            target="_blank"
+          >
+            {show?.webChannel?.name}
+          </a>
+        </p>
+      </Section>
     </DefaultLayout>
   );
 };
