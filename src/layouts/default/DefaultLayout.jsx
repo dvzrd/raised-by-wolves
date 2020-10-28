@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Loader, Section } from "../../components";
+import { Button, Loader, Section } from "../../components";
 import { useTVMazeContext } from "../../contexts";
 
 import styles from "./DefaultLayout.module.scss";
@@ -22,8 +22,9 @@ export const DefaultLayout = ({
     <div className={styles.layout}>
       {showHeader && (
         <Section
-          component="header"
           className={styles.header}
+          component="header"
+          containerClassName="flex content-center items-center justify-between"
           pattern="space-apart-sm"
         >
           <Link to="/">
@@ -31,6 +32,17 @@ export const DefaultLayout = ({
               {show.name}
             </h1>
           </Link>
+          <Button
+            color="secondary"
+            component="a"
+            pattern="outline"
+            size="sm"
+            href="https://www.youtube.com/watch?v=YIAIiw8UAfA"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Watch the free pilot
+          </Button>
         </Section>
       )}
       <main className={styles.main}>{children}</main>

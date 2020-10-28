@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classNames from "classnames";
 
 import { DefaultLayout } from "../../layouts";
@@ -17,15 +18,13 @@ export const LandingPage = () => {
 
   if (!images.length) return <Loader />;
 
-  console.log("show", show);
-
   return (
     <DefaultLayout showHeader={false}>
       <Hero
         actions={[
           {
             href: "https://www.youtube.com/watch?v=YIAIiw8UAfA",
-            label: "Watch the first episode for free",
+            label: "Watch the first episode for free here",
             rel: "noreferrer",
             target: "_blank",
           },
@@ -94,7 +93,7 @@ export const LandingPage = () => {
               "bg-white -mt-8 mb-8 sm:-mt-20 sm:mb-20 md:-mt-32 md:mb-24 xl:my-0"
             )}
           >
-            <h4 className="uppercase font-bold mb-3 text-secondary text-xl md:text-2xl">
+            <h4 className="uppercase font-bold mb-3 text-secondary text-xl md:text-2xl xl:text-3xl">
               {show?.name}
             </h4>
             <h4 className="text-sm md:text-base">
@@ -132,6 +131,7 @@ export const LandingPage = () => {
               className="flex justify-center mt-6"
               color="secondary"
               component="a"
+              pattern="outline"
               size="sm"
               href="https://www.youtube.com/watch?v=mRMVtm2voVA"
               rel="noreferrer"
@@ -139,16 +139,35 @@ export const LandingPage = () => {
             >
               Watch the trailer
             </Button>
+            <Button
+              className="flex justify-center mt-4"
+              color="secondary"
+              component="a"
+              size="sm"
+              href="https://www.youtube.com/watch?v=YIAIiw8UAfA"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Watch the free pilot
+            </Button>
           </Card>
         </figcaption>
       </Section>
       <Section>
-        <h4 className="font-light tracking-wide">Meet the characters</h4>
+        <h4 className="font-medium tracking-wide text-xl md:text-2xl xl:text-3xl my-4">
+          Meet the main characters
+        </h4>
+        <Button size="sm" component={Link} to="/characters">
+          See all characters
+        </Button>
       </Section>
       <Section className="bg-gray-200">
-        <h4 className="font-light tracking-wide">
-          See list of available episodes
+        <h4 className="font-medium tracking-wide text-xl md:text-2xl xl:text-3xl my-4">
+          Most recent episodes
         </h4>
+        <Button color="secondary" size="sm" component={Link} to="/episodes">
+          See all episodes
+        </Button>
       </Section>
     </DefaultLayout>
   );
