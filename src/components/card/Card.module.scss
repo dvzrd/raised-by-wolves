@@ -1,0 +1,24 @@
+// card patterns
+
+.default {
+  max-width: 320px;
+  margin: 0 auto;
+
+  @media only screen and (min-width: 640px) {
+    max-width: 480px;
+  }
+}
+
+.quote {
+  max-width: none;
+}
+
+// card modifiers
+
+.full {
+  max-width: 100%;
+}
+
+.compact {
+  padding: 0 !important;
+}

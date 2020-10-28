@@ -69,6 +69,8 @@ export const Hero = ({
             className={action.className}
             component="a"
             href={action.href}
+            rel={action.rel}
+            target={action.target}
             pattern="outline"
           >
             {action.label}
