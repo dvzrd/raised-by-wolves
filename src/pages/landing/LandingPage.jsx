@@ -216,14 +216,23 @@ export const LandingPage = () => {
             <h4 className="leading-tight text-3xl md:text-4xl xl:text-5xl">
               {featuredEpisode.name}
               <small className="block xs:flex xs:justify-between border-t-2 border-gray-800 pt-2 mt-1 text-gray-600 text-xs md:text-sm">
-                Season {featuredEpisode.season}, Episode {featuredEpisode.number} <span className="block sm:inline sm:text-right">{featuredEpisode.airdate}</span>
+                Season {featuredEpisode.season}, Episode{" "}
+                {featuredEpisode.number}{" "}
+                <span className="block sm:inline sm:text-right">
+                  {featuredEpisode.airdate}
+                </span>
               </small>
             </h4>
           )}
         </figcaption>
         {featuredEpisode && (
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 xl:gap-10 items-center content-center">
-            <div className="w-full h-64 sm:h-full bg-no-repeat bg-center bg-cover" style={{ backgroundImage: `url(${featuredEpisode.image.original})` }} />
+            <div
+              className="w-full h-64 sm:h-full bg-no-repeat bg-center bg-cover"
+              style={{
+                backgroundImage: `url(${featuredEpisode.image.original})`,
+              }}
+            />
             <div className="text-center sm:text-left sm:my-1 lg:my-2">
               <article
                 className="md:text-lg xl:text-xl text-left text-gray-800"
