@@ -1,0 +1,26 @@
+.card {
+  cursor: pointer;
+  max-width: none;
+}
+
+.caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(5,10,8,0.5) 0%, rgba(5,10,8,0) 100%);
+
+  &:hover {
+    background: linear-gradient(0deg, rgba(5,10,8,0.25) 0%, rgba(5,10,8,0) 100%);
+  }
+}
+
+.name {
+  line-height: 1;
+}

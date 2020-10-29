@@ -13,7 +13,7 @@ export const EpisodesPage = () => {
 
   return (
     <DefaultLayout>
-      <Section className="bg-gray-100">
+      <Section>
         {episodes.length &&
           episodes.map((episode) => (
             <div className="py-4" key={episode.id}>

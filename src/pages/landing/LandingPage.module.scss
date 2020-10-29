@@ -15,3 +15,37 @@
     width: 100%;
   }
 }
+
+.characterCard {
+  min-height: 85vh;
+
+  @media only screen and (min-width: 768px) {
+    min-height: 65vh;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    min-height: 75vh;
+  }
+
+  @media only screen and (min-width: 1280px) {
+    min-height: 85vh;
+  }
+
+  .personName {
+    color: var(--color-gray-400);
+  }
+
+  .characterName {
+    color: var(--color-gray-200);
+  }
+
+  &:hover {
+    .personName {
+      color: var(--color-gray-100);
+    }
+
+    .characterName {
+      color: var(--color-primary);
+    }
+  }
+}

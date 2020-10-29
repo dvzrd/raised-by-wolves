@@ -35,7 +35,7 @@ export const DefaultLayout = ({
           className={classNames(styles.header, headerProps?.className)}
         >
           <Link to="/">
-            <h1 className="inline-flex font-bold uppercase tracking-widest text-lg text-secondary hover:text-primary transition-colors duration-150 ease-in-out">
+            <h1 className="inline-flex font-bold uppercase tracking-widest text-lg md:text-xl xl:text-2xl text-secondary hover:text-primary transition-colors duration-150 ease-in-out">
               {show.name}
             </h1>
           </Link>

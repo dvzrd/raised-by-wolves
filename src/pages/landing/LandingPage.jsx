@@ -18,7 +18,7 @@ export const LandingPage = () => {
   const producer = crew?.filter(
     ({ person }) => person.name === "Ridley Scott"
   )[0];
-  const featuredCharacters = /^(Mother|Father)$/;
+  const featuredCharacters = /^(Mother|Father|Campion)$/;
   const characters = cast?.filter(({ character }) =>
     character.name.match(featuredCharacters)
   );
@@ -30,8 +30,6 @@ export const LandingPage = () => {
   };
 
   if (!images.length) return <Loader />;
-
-  console.log(show, featuredEpisode);
 
   return (
     <DefaultLayout {...layoutProps}>
@@ -174,32 +172,54 @@ export const LandingPage = () => {
       {characters && (
         <Section
           className="bg-secondary"
-          containerClassName="flex flex-col flex-no-wrap p-0"
+          containerClassName="flex flex-col flex-no-wrap p-0 max-w-none"
           pattern="space-apart-xl"
         >
           <figcaption className="container mt-12 mb-4 md:mt-24 md:mb-8 xl:mt-40 xl:mb-16">
-            <h4 className="font-medium uppercase tracking-wide text-center text-gray-100 text-2xl md:text-3xl xl:text-4xl">
+            <h4 className="font-medium uppercase tracking-wide text-center text-primary text-2xl md:text-3xl xl:text-4xl">
               <small className="block text-gray-300">Introducing</small>
-              Mother and Father
+              The Main Characters
             </h4>
           </figcaption>
-          <div className="grid sm:grid-cols-2">
+          <div className="grid md:grid-cols-3">
             {characters.map(({ character, person }) => (
-              <div
+              <a
                 key={character.id}
-                className="bg-center bg-cover bg-no-repeat"
+                className={classNames(
+                  styles.characterCard,
+                  "flex items-end bg-top md:bg-center bg-cover bg-no-repeat"
+                )}
                 style={{
-                  backgroundImage: `url(${character.image.original})`,
-                  minHeight: "75vh",
+                  backgroundImage: `linear-gradient(0deg, rgb(5 10 8) 0%, rgba(5,10,8, 0.25) 100%), url(${character.image.original})`,
                 }}
+                href={person.url}
+                rel="noreferrer"
+                target="_blank"
               >
-                {/* <img alt={person.name} src={person.image.original} /> */}
-              </div>
+                <div className="flex flex-1 flex-col flex-no-wrap p-6 text-center">
+                  <h4
+                    className={classNames(
+                      styles.personName,
+                      "leading-tight uppercase tracking-widest text-xs md:text-sm xl:text-base transition-colors duration-150 ease-in-out"
+                    )}
+                  >
+                    {person.name}
+                  </h4>
+                  <h4
+                    className={classNames(
+                      styles.characterName,
+                      "leading-snug uppercase tracking-widest text-xl md:text-2xl xl:text-3xl transition-colors duration-150 ease-in-out"
+                    )}
+                  >
+                    {character.name}
+                  </h4>
+                </div>
+              </a>
             ))}
           </div>
-          <footer className="container flex justify-center my-4 mx-auto my-4 md:my-8 xl:my-16">
+          <footer className="container flex justify-center mx-auto my-8 md:my-16 xl:my-24">
             <Button component={Link} pattern="outline" to="/cast">
-              Meet the rest of the cast
+              See the full cast members
             </Button>
           </footer>
         </Section>
@@ -208,7 +228,7 @@ export const LandingPage = () => {
       <Section
         className="bg-primary"
         component="footer"
-        pattern="space-apart-sm"
+        pattern="space-apart-md"
       >
         <figcaption className="mb-4 xl:mb-6 mt-16 md:mt-24 xl:mt-32 font-semibold uppercase tracking-widest text-center sm:text-left">
           <h4 className="md:text-lg xl:text-xl text-gray-800">{show?.name}</h4>
