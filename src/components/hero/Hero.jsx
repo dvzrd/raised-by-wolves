@@ -67,11 +67,8 @@ export const Hero = ({
           <Button
             key={action.label}
             className={action.className}
-            component="a"
-            href={action.href}
-            rel={action.rel}
-            target={action.target}
             pattern="outline"
+            {...action}
           >
             {action.label}
           </Button>

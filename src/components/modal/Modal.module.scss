@@ -1,0 +1,7 @@
+@import 'react-modal-video/scss/modal-video.scss';
+
+.modal {
+  :global(.modal-video) {
+    background-color: rgba(5,10,8,0.95);
+  }
+}
