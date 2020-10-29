@@ -187,7 +187,7 @@ export const LandingPage = () => {
                 key={character.id}
                 className={classNames(
                   styles.characterCard,
-                  "flex items-end bg-top md:bg-center bg-cover bg-no-repeat"
+                  "flex items-end bg-top md:bg-center bg-cover bg-no-repeat border-b-2 border-secondary hover:border-primary transition-colors duration-150 ease-in-out"
                 )}
                 style={{
                   backgroundImage: `linear-gradient(0deg, rgb(5 10 8) 0%, rgba(5,10,8, 0.25) 100%), url(${character.image.original})`,
@@ -196,11 +196,11 @@ export const LandingPage = () => {
                 rel="noreferrer"
                 target="_blank"
               >
-                <div className="flex flex-1 flex-col flex-no-wrap p-6 text-center">
+                <div className="flex flex-1 flex-col flex-no-wrap px-6 py-4 text-center">
                   <h4
                     className={classNames(
                       styles.personName,
-                      "leading-tight uppercase tracking-widest text-xs md:text-sm xl:text-base transition-colors duration-150 ease-in-out"
+                      "leading-tight uppercase tracking-widest sm:text-lg md:text-base xl:text-lg transition-colors duration-150 ease-in-out"
                     )}
                   >
                     {person.name}
@@ -208,7 +208,7 @@ export const LandingPage = () => {
                   <h4
                     className={classNames(
                       styles.characterName,
-                      "leading-snug uppercase tracking-widest text-xl md:text-2xl xl:text-3xl transition-colors duration-150 ease-in-out"
+                      "leading-snug uppercase tracking-widest text-xl sm:text-2xl md:text-xl lg:text-2xl xl:text-3xl transition-colors duration-150 ease-in-out"
                     )}
                   >
                     {character.name}
@@ -247,12 +247,19 @@ export const LandingPage = () => {
         </figcaption>
         {featuredEpisode && (
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 xl:gap-10 items-center content-center">
-            <div
-              className="w-full h-64 sm:h-full bg-no-repeat bg-center bg-cover"
-              style={{
-                backgroundImage: `url(${featuredEpisode.image.original})`,
-              }}
-            />
+            <a
+              className="block h-full border border-primary hover:border-secondary transition-colors duration-150 ease-in-out"
+              href={featuredEpisode.url}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div
+                className="w-full h-64 sm:h-full bg-no-repeat bg-center bg-cover"
+                style={{
+                  backgroundImage: `url(${featuredEpisode.image.original})`,
+                }}
+              />
+            </a>
             <div className="text-center sm:text-left sm:my-1 lg:my-2">
               <article
                 className="md:text-lg xl:text-xl text-left text-gray-800"

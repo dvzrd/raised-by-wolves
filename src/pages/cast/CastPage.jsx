@@ -16,11 +16,16 @@ export const CastPage = () => {
     <DefaultLayout>
       <Section
         containerClassName="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 xl:gap-10"
-        containerComponent="div"
+        containerComponent="ul"
       >
         {cast.length &&
           cast.map(({ character, person }) => (
-            <Card key={character.id} className={styles.card} pattern="portrait">
+            <Card
+              key={character.id}
+              className={styles.card}
+              component="li"
+              pattern="portrait"
+            >
               <img
                 className="w-full"
                 alt={character.name}
