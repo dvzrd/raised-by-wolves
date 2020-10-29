@@ -113,37 +113,48 @@ export const LandingPage = () => {
               <h4 className="uppercase font-bold mb-3 text-secondary text-xl md:text-2xl xl:text-3xl">
                 {show?.name}
               </h4>
-              <h4 className="text-sm md:text-base">
-                Created by:{" "}
+              <div className="grid grid-cols-6 gap-1">
+                <label className="col-span-3 sm:col-span-2 text-xs md:text-sm text-gray-500">
+                  Created by:
+                </label>
                 <a
-                  className="text-orange-400 hover:text-primary"
+                  className="col-span-3 sm:col-span-4 text-sm md:text-base text-orange-400 hover:text-primary"
                   href="https://www.imdb.com/name/nm3360706/"
                   rel="noreferrer"
                   target="_blank"
                 >
                   {creator?.person?.name}
                 </a>
-              </h4>
-              <h4 className="text-sm md:text-base">
-                Streaming on:{" "}
+                <label className="col-span-3 sm:col-span-2 text-xs md:text-sm text-gray-500">
+                  Streaming on:
+                </label>
                 <a
-                  className="text-orange-400 hover:text-primary"
+                  className="col-span-3 sm:col-span-4 text-sm md:text-base text-orange-400 hover:text-primary"
                   href={show?.officialSite}
                   rel="noreferrer"
                   target="_blank"
                 >
                   {show?.webChannel?.name}
                 </a>
-              </h4>
-              <h4 className="text-sm md:text-base">
-                Genres: {show?.genres?.join(", ")}
-              </h4>
-              <h4 className="text-sm md:text-base">
-                Premiered on: {show?.premiered}
-              </h4>
-              <h4 className="text-sm md:text-base">
-                Average Rating: {show?.rating?.average} / 10
-              </h4>
+                <label className="col-span-3 sm:col-span-2 text-xs md:text-sm text-gray-500">
+                  Genres:
+                </label>
+                <p className="col-span-3 sm:col-span-4 text-sm md:text-base">
+                  {show?.genres?.join(", ")}
+                </p>
+                <label className="col-span-3 sm:col-span-2 text-xs md:text-sm text-gray-500">
+                  Premiered on:
+                </label>
+                <p className="col-span-3 sm:col-span-4 text-sm md:text-base">
+                  {show?.premiered}
+                </p>
+                <label className="col-span-3 sm:col-span-2 text-xs md:text-sm text-gray-500">
+                  Average Rating:
+                </label>
+                <p className="col-span-3 sm:col-span-4 text-sm md:text-base">
+                  {show?.rating?.average} / 10
+                </p>
+              </div>
               <Button
                 className="flex justify-center mt-6 w-full"
                 color="secondary"

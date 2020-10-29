@@ -9,6 +9,9 @@ import styles from "./DefaultLayout.module.scss";
 
 // TODO:
 // - create a container to reuse loading pattern for layouts and pages (or other components that use data)
+// - create a container and context provider to be able to open modals by id
+//   - something like a hash route modal using portal api would be nice.
+//   - replace react-video-modal dependency with this custom solution.
 
 export const DefaultLayout = ({
   children,
